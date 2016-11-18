@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 public class CommonArrayAlgorithms
 {
@@ -14,10 +15,10 @@ public class CommonArrayAlgorithms
         {
             randomArray[ i ] = (int)( Math.random() * maxValue );
         }
-        
+
         return randomArray;
     }
-    
+
     /*
      * Prints the specified array to System.out
      */
@@ -25,7 +26,7 @@ public class CommonArrayAlgorithms
     {
         System.out.println( Arrays.toString( array ));
     }
-    
+
     /*
      * Array Algorithm #1: Sum and Average
      *  creates an array filled with random numbers
@@ -36,18 +37,16 @@ public class CommonArrayAlgorithms
     {
         double sum = 0;
         double average = 0;
-        int count = 0;
 
         int[] array = createRandomArray( 10, 50 );
 
         for( int i = 0; i < array.length; i++ )
         {
             sum += array[ i ];
-            count++;
         }
 
-        average = sum / count;
-        
+        average = sum / array.length;
+
         printArray( array );
         System.out.println( "sum: " + sum + " average: " + average );
     }
@@ -87,6 +86,26 @@ public class CommonArrayAlgorithms
      */
     public static void swapElements( int index1, int index2 )
     {
+        int[] randoNumbo = { 123, 2 ,423, 512341, 23,17,9878 ,34 ,23};
+        for ( int i = 0;
+        i < randoNumbo.length;
+        i++)
+        {
+            System.out.print(randoNumbo[i]+" ");
+        }
+
+        int tempVar = randoNumbo[index1];
+        randoNumbo[index1] = randoNumbo[index2];
+        randoNumbo[index2] = tempVar;
+
+        System.out.println(" ");
+
+        for ( int i = 0;
+        i < randoNumbo.length;
+        i++)
+        {
+            System.out.print(randoNumbo[i]+" ");
+        }
     }
 
     /*
@@ -99,16 +118,20 @@ public class CommonArrayAlgorithms
     public static void findMax() 
     {Random random = new Random();
         int[] randomArray = new int[10];
-        int largestInt = 0;
         for (int i = 0; i < 10; i++) {
             int a = random.nextInt();
             randomArray[i] = a;
-            if (a > largestInt) {
-                largestInt = a;
+        }
+
+        int largestInt = randomArray[0];
+        for (int i = 0; i < 10; i++) {
+            if (randomArray[i] > largestInt) {
+                largestInt = randomArray[i];
             }
         }
+
         for(int i = 0; i < randomArray.length; i++) {
-         System.out.println(randomArray[i]);
+            System.out.println(randomArray[i]);
         }
         System.out.println("The largest number in the array is " + largestInt);
     }
@@ -122,6 +145,29 @@ public class CommonArrayAlgorithms
      */
     public static void findMin()
     {
+        int[] numbers = new int[5];
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter a number");
+        int val = s.nextInt();
+        int min = val;
+        numbers[0] += val;
+        for (int i = 1; i <=4; i++)
+        {
+            System.out.print("Enter a positive integer: ");
+            val = s.nextInt();
+            numbers[i] += val;
+
+            if (val<min)
+            {
+                min = val;
+            }
+        }
+
+        for(int i = 0; i < numbers.length; i++)
+        {
+            System.out.println(numbers[i] + " ");
+        }
+        System.out.println("The minimum value is " + min);
     }
 
     /*
@@ -136,7 +182,21 @@ public class CommonArrayAlgorithms
      */
     public static int[] copyArray()
     {
-        return null;
-    }
 
+        int [] array =  new int[5];
+        for (int i = 0;i<array.length;i++){
+            array[i] =(int) (Math.random()*100);
+        }
+        int [] copy = new int[array.length];
+        for( int i = 0; i < copy.length; i++)
+        { 
+            copy[i] = array[i];
+        }
+        for( int i = 0; i < copy.length; i++)
+        { 
+            System.out.println(i+": "+ array[i]+" "+copy[i]);
+        }
+        return copy;
+
+    }
 }
