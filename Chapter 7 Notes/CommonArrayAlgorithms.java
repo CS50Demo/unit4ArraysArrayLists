@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 public class CommonArrayAlgorithms
 {
@@ -113,8 +114,28 @@ public class CommonArrayAlgorithms
      * 
      * RED GROUP
      */
-    public static void swapElements( int index1, int index2 )
+    public static void swapElements( int length, int maxValue )
     {
+        int[] randomArray = new int[ length ];
+        for( int i = 0; i < randomArray.length; i++ )
+        {
+            randomArray[ i ] = (int)( Math.random() * maxValue );
+            System.out.print( randomArray[i] );
+        }
+
+        Scanner scan = new Scanner( System.in );
+        System.out.println( "\nEnter two indexes from the array above: " );
+        int index1 = scan.nextInt();
+        int index2 = scan.nextInt();
+        int num = randomArray[index1];
+        randomArray[index1] = randomArray[index2];
+        randomArray[index2] = randomArray[num];
+        
+        for( int i = 0; i < randomArray.length; i++ )
+        {
+            System.out.print( randomArray[i] );
+        }
+        
     }
 
     /*
@@ -126,6 +147,18 @@ public class CommonArrayAlgorithms
      */
     public static void findMax() 
     {
+        int[] array = createRandomArray(10, 25);
+        int max = 0;
+        
+        for (int num : array) {
+            if (num > max) {
+                max = num;
+            }
+        }
+        
+        System.out.println("The maximum value of array");
+        printArray(array);
+        System.out.println("is " + max);
     }
 
     /*
@@ -137,6 +170,18 @@ public class CommonArrayAlgorithms
      */
     public static void findMin()
     {
+        int[] array = createRandomArray(10, 25);
+        int min = 25;
+        
+        for (int num : array) {
+            if (num < min) {
+                min = num;
+            }
+        }
+        
+        System.out.println("The minimum value of array");
+        printArray(array);
+        System.out.println("is " + min);
     }
 
     /*
