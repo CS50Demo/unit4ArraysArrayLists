@@ -129,13 +129,13 @@ public class CommonArrayAlgorithms
         int index2 = scan.nextInt();
         int num = randomArray[index1];
         randomArray[index1] = randomArray[index2];
-        randomArray[index2] = randomArray[num];
-        
+        randomArray[index2] = num;
+
         for( int i = 0; i < randomArray.length; i++ )
         {
             System.out.print( randomArray[i] );
         }
-        
+
     }
 
     /*
@@ -148,14 +148,14 @@ public class CommonArrayAlgorithms
     public static void findMax() 
     {
         int[] array = createRandomArray(10, 25);
-        int max = 0;
-        
+        int max = array[0];
+
         for (int num : array) {
             if (num > max) {
                 max = num;
             }
         }
-        
+
         System.out.println("The maximum value of array");
         printArray(array);
         System.out.println("is " + max);
@@ -171,14 +171,14 @@ public class CommonArrayAlgorithms
     public static void findMin()
     {
         int[] array = createRandomArray(10, 25);
-        int min = 25;
-        
+        int min = array[0];
+
         for (int num : array) {
             if (num < min) {
                 min = num;
             }
         }
-        
+
         System.out.println("The minimum value of array");
         printArray(array);
         System.out.println("is " + min);
