@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Random;
 
 public class CommonArrayAlgorithms
 {
@@ -96,7 +97,20 @@ public class CommonArrayAlgorithms
      * PURPLE GROUP
      */
     public static void findMax() 
-    {
+    {Random random = new Random();
+        int[] randomArray = new int[10];
+        int largestInt = 0;
+        for (int i = 0; i < 10; i++) {
+            int a = random.nextInt();
+            randomArray[i] = a;
+            if (a > largestInt) {
+                largestInt = a;
+            }
+        }
+        for(int i = 0; i < randomArray.length; i++) {
+         System.out.println(randomArray[i]);
+        }
+        System.out.println("The largest number in the array is " + largestInt);
     }
 
     /*
