@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Random;
 
 public class CommonArrayAlgorithms
 {
@@ -13,10 +14,10 @@ public class CommonArrayAlgorithms
         {
             randomArray[ i ] = (int)( Math.random() * maxValue );
         }
-        
+
         return randomArray;
     }
-    
+
     /*
      * Prints the specified array to System.out
      */
@@ -24,7 +25,7 @@ public class CommonArrayAlgorithms
     {
         System.out.println( Arrays.toString( array ));
     }
-    
+
     /*
      * Array Algorithm #1: Sum and Average
      *  creates an array filled with random numbers
@@ -46,7 +47,7 @@ public class CommonArrayAlgorithms
         }
 
         average = sum / count;
-        
+
         printArray( array );
         System.out.println( "sum: " + sum + " average: " + average );
     }
@@ -61,6 +62,20 @@ public class CommonArrayAlgorithms
      */
     public static void printElementSeparators()
     {
+        Random ran = new Random();
+        int[] blue = new int[10];
+        for (int count = 0; count < blue.length; count++)
+        {
+            blue[count] = ran.nextInt(100);
+        }
+        for (int i = 0; i < blue.length; i++)
+        {
+            System.out.print(blue[i]);
+            if( i != (blue.length-1))
+            {
+                System.out.print(" | ");    
+            }
+        }
     }
 
     /*
@@ -73,6 +88,20 @@ public class CommonArrayAlgorithms
      */
     public static void linearSearch( int valueToFind )
     {
+        int[] randomArray = createRandomArray(100, 11);
+        boolean valueFound = false;
+        for( int index = 0; index < randomArray.length; index++ ) {
+            if(randomArray[index] == valueToFind) {
+                System.out.println("The value is at: " + index);
+                printArray(randomArray);
+                valueFound = true;
+                break;
+            }
+        }
+        if(!valueFound) {
+            System.out.println("The value was not found!");
+            printArray(randomArray);
+        }
     }
 
     /*
@@ -122,7 +151,28 @@ public class CommonArrayAlgorithms
      */
     public static int[] copyArray()
     {
-        return null;
+
+        int[] array = new int[10];
+        for (int i = 0; i < array.length; i++)
+        {
+            array[i] = (int)(Math.random()*10);
+        }
+        int [] newArray = new int[array.length];
+        for (int i = 0; i < array.length; i++)
+        {
+            newArray[i] = array[i];
+        }
+        System.out.println( "Original Array: ");
+        for (int i = 0; i < array.length; i++)
+        {
+            System.out.println(array[i]);
+        }
+        System.out.println("New Array:");
+        for (int i = 0; i < array.length; i++)
+        {
+            System.out.println(newArray[i]);
+        }
+        return newArray;
     }
 
 }
