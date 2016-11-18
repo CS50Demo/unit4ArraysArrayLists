@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Random;
 
 public class CommonArrayAlgorithms
 {
@@ -86,6 +87,21 @@ public class CommonArrayAlgorithms
      */
     public static void swapElements( int index1, int index2 )
     {
+        Random generator = new Random();
+int[] array = new int[5];
+for(int i = 0; i < array.length; i++)
+{
+array[i] = generator.nextInt(5)+1;
+}
+System.out.println("You wanted to switch index " + index1 + 
+" with index " + index2);
+System.out.println(Arrays.toString(array));
+int oldIndex1, oldIndex2;
+oldIndex1 = array[index1];
+oldIndex2 = array[index2];
+array[index1] = oldIndex2;
+array[index2] = oldIndex1;
+System.out.println(Arrays.toString(array));
     }
 
     /*
@@ -122,7 +138,24 @@ public class CommonArrayAlgorithms
      */
     public static int[] copyArray()
     {
-        return null;
+        final int ELEMENTS_PER_ARRAY = 10;
+        
+        // Create the original array
+        int[] array1 = createRandomArray(ELEMENTS_PER_ARRAY, 10);
+        
+        // Create & copy contents to new array
+        int[] array2 = new int[ELEMENTS_PER_ARRAY];
+        for ( int i = 0; i < array2.length; i++ )
+        {
+            array2[i] = array1[i];
+        }
+        
+        // Print both arrays
+        printArray(array1);
+        printArray(array2);
+        
+        // Return the new array
+        return array2;
     }
 
 }
