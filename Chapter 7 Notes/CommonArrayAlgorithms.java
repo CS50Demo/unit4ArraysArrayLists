@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 public class CommonArrayAlgorithms
 {
@@ -14,10 +15,10 @@ public class CommonArrayAlgorithms
         {
             randomArray[ i ] = (int)( Math.random() * maxValue );
         }
-        
+
         return randomArray;
     }
-    
+
     /*
      * Prints the specified array to System.out
      */
@@ -25,7 +26,7 @@ public class CommonArrayAlgorithms
     {
         System.out.println( Arrays.toString( array ));
     }
-    
+
     /*
      * Array Algorithm #1: Sum and Average
      *  creates an array filled with random numbers
@@ -47,7 +48,7 @@ public class CommonArrayAlgorithms
         }
 
         average = sum / count;
-        
+
         printArray( array );
         System.out.println( "sum: " + sum + " average: " + average );
     }
@@ -62,6 +63,20 @@ public class CommonArrayAlgorithms
      */
     public static void printElementSeparators()
     {
+        int length = 10;
+        int maxValue = 10;
+        int[] randNums = createRandomArray(length, maxValue);
+        for(int i = 0;
+        i < randNums.length;
+        i++)
+        {
+            System.out.print(randNums[i]);
+            if(i < randNums.length - 1)
+            {
+                System.out.print(" | ");
+            }
+
+        }
     }
 
     /*
@@ -74,6 +89,36 @@ public class CommonArrayAlgorithms
      */
     public static void linearSearch( int valueToFind )
     {
+
+        Scanner s = new Scanner(System.in);
+
+        System.out.print("What is the max number?: ");
+        int maxNum = s.nextInt();
+        System.out.print("How many items in the array?: ");
+        int length = s.nextInt();
+        System.out.println();
+
+        int[] array1 = createRandomArray(length, maxNum);
+        int numPos = 0;
+        int firstTime = 0;
+
+        System.out.print("Array = {");
+
+        for (int i = 0; i < array1.length; i++)
+        {
+            if (i != array1.length - 1)
+            {
+                System.out.print(array1[i] + ", ");
+            } else {
+                System.out.print(array1[i]);
+            }
+            if (valueToFind == array1[i] && firstTime == 0)
+            {
+                firstTime++;
+                numPos = i;
+            }
+        }
+        System.out.print("}\n\narray1[ " + numPos + " ]");
     }
 
     /*
@@ -88,20 +133,20 @@ public class CommonArrayAlgorithms
     public static void swapElements( int index1, int index2 )
     {
         Random generator = new Random();
-int[] array = new int[5];
-for(int i = 0; i < array.length; i++)
-{
-array[i] = generator.nextInt(5)+1;
-}
-System.out.println("You wanted to switch index " + index1 + 
-" with index " + index2);
-System.out.println(Arrays.toString(array));
-int oldIndex1, oldIndex2;
-oldIndex1 = array[index1];
-oldIndex2 = array[index2];
-array[index1] = oldIndex2;
-array[index2] = oldIndex1;
-System.out.println(Arrays.toString(array));
+        int[] array = new int[5];
+        for(int i = 0; i < array.length; i++)
+        {
+            array[i] = generator.nextInt(5)+1;
+        }
+        System.out.println("You wanted to switch index " + index1 + 
+            " with index " + index2);
+        System.out.println(Arrays.toString(array));
+        int value;
+        value = array[index1];
+        array[index1] = array[index2];
+        array[index2] = value;
+        
+        System.out.println(Arrays.toString(array));
     }
 
     /*
@@ -113,6 +158,30 @@ System.out.println(Arrays.toString(array));
      */
     public static void findMax() 
     {
+
+        int[] randomNums = new int[10];
+        Random rand = new Random();
+
+        for (int i = 0; i < randomNums.length; i++)
+        {
+            randomNums[i] = rand.nextInt(100) + 1;
+        }
+
+        int maxNum = randomNums[0];
+
+        for (int i = 0; i < randomNums.length; i++)
+        {
+            if (randomNums[i] > maxNum)
+            {
+                maxNum = randomNums[i];
+            }
+        }
+
+        for (int i = 0; i < randomNums.length; i++)
+        {
+            System.out.print(randomNums[i] + " ");
+        }
+        System.out.println("\n" + maxNum);
     }
 
     /*
@@ -139,21 +208,21 @@ System.out.println(Arrays.toString(array));
     public static int[] copyArray()
     {
         final int ELEMENTS_PER_ARRAY = 10;
-        
+
         // Create the original array
         int[] array1 = createRandomArray(ELEMENTS_PER_ARRAY, 10);
-        
+
         // Create & copy contents to new array
         int[] array2 = new int[ELEMENTS_PER_ARRAY];
         for ( int i = 0; i < array2.length; i++ )
         {
             array2[i] = array1[i];
         }
-        
+
         // Print both arrays
         printArray(array1);
         printArray(array2);
-        
+
         // Return the new array
         return array2;
     }
