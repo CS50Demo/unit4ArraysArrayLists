@@ -61,6 +61,20 @@ public class CommonArrayAlgorithms
      */
     public static void printElementSeparators()
     {
+        Random rand = new Random();
+        int[] randomNumbers = new int[5];
+        int num;
+        for( int i = 0; i < 5; i++ )
+        {
+            num = rand.nextInt(101);
+            randomNumbers[i] = num;
+        }
+
+        for( int i = 0; i < randomNumbers.length - 1; i++ )
+        {
+            System.out.print( randomNumbers[i] + " | " );
+        }
+        System.out.print( randomNumbers[randomNumbers.length - 1] );
     }
 
     /*
@@ -73,6 +87,24 @@ public class CommonArrayAlgorithms
      */
     public static void linearSearch( int valueToFind )
     {
+        int index = 0;
+        boolean isTrue = true;
+
+        int[] array = createRandomArray( 50, 10 );
+
+        for( int i = 0 ; i < array.length && isTrue; i++ )
+        {
+            if( array[ i ] == valueToFind )
+            {
+                isTrue = false;
+            }
+            else
+            {
+                index++;
+            }
+        }
+        printArray( array );
+        System.out.println( "value: " + valueToFind + " index: " + index );
     }
 
     /*
