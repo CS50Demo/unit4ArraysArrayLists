@@ -79,6 +79,29 @@ public class Notes
         odds[ 2 ] = 6;
         
         System.out.println( moreOdds[ 2 ] ); // prints "6"
+        
+        /*
+         * Enhanced For Loop
+         *      similar to the "for ... in" structure in Python
+         *      iterates over the values in an array
+         */
+        for( int number : odds )
+        {
+            System.out.println( number );
+        }
+        
+        /*
+         * Limitations of the Enhanced For Loop
+         *      the local variable contains a copy of the value of the element
+         *      cannot modify the values of the elements in the array
+         *      cannot easily destermine the index of an element
+         */
+        for( int number : odds )
+        {
+            number += 1;    // this doesn't change any element in the array
+        }
+        
+        
     }
     
     public static void createArrayOfCalendars()
