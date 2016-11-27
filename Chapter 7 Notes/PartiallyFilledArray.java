@@ -65,6 +65,23 @@ public class PartiallyFilledArray
         this.currentSize--;
     }
     
+    public void insert( double value, int index )
+    {
+        // if the array is full, grow it
+        if( this.currentSize == this.values.length )
+        {
+            this.grow();
+        }
+
+        for( int i = this.currentSize - 1; i >= index; i-- )
+        {
+            this.values[ i + 1 ] = this.values[ i ];
+        }
+        
+        this.values[ index ] = value;
+        this.currentSize++;
+    }
+    
     
 }
 
