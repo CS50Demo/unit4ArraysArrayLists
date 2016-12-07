@@ -20,6 +20,61 @@ public class ArrayListExample
         addValuesToList( list, 20 /* # of values */, 10 /* range of values */ );
         
         System.out.println( list );
+        
+        removeEvensFromList( list );
+        
+        System.out.println( list );
+    }
+    
+    public static void removeEvensFromList( ArrayList<Integer> list )
+    {
+        /*
+         * To get the number of elements in the list, invoke the size method
+         */
+        for( int i = 0; i < list.size(); i++ )
+        {
+            /*
+             * To get the value of an element in the list, invoke the get
+             *      method and pass the element's index
+             */
+            int value = list.get( i );
+            
+            // check if value is even
+            if( value % 2 == 0 )
+            {
+                /*
+                 * To remove an element from the list, invoke the remove
+                 *      method and pass the element's index
+                 */
+                list.remove( i );
+                i--;
+            }
+        }
+    }
+
+    public static void removeEvensFromList2( ArrayList<Integer> list )
+    {
+        /*
+         * To get the number of elements in the list, invoke the size method
+         */
+        for( int i = list.size() - 1; i >= 0; i-- )
+        {
+            /*
+             * To get the value of an element in the list, invoke the get
+             *      method and pass the element's index
+             */
+            int value = list.get( i );
+            
+            // check if value is even
+            if( value % 2 == 0 )
+            {
+                /*
+                 * To remove an element from the list, invoke the remove
+                 *      method and pass the element's index
+                 */
+                list.remove( i );
+            }
+        }
     }
     
     public static void addValuesToList( ArrayList<Integer> list,
