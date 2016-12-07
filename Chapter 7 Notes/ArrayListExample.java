@@ -22,6 +22,10 @@ public class ArrayListExample
         fillList( list, 20 /* # values */, 10 /* range of values */);
         
         System.out.println( list );
+        
+        removeEvenElements( list );
+        
+        System.out.println( list );
     }
     
     public static void fillList( ArrayList<Integer> list,
@@ -36,6 +40,51 @@ public class ArrayListExample
              *      primitive values to their corresponding objects.
              */
             list.add( (int)( Math.random() * range ));
+        }
+    }
+    
+    public static void removeEvenElements( ArrayList<Integer> list )
+    {
+        /*
+         * Call the size method to get the number of elements in the list
+         */
+        for( int i = 0; i < list.size(); i++ )
+        {
+            /*
+             * To access an element in a list, call the get method
+             */
+            int value = list.get( i );
+            
+            if( value % 2 == 0 )
+            {
+                /*
+                 * To remove an element, call the remove method
+                 */
+                list.remove( i );
+                i--;
+            }
+        }
+    }
+    
+    public static void removeEvenElements2( ArrayList<Integer> list )
+    {
+        /*
+         * Call the size method to get the number of elements in the list
+         */
+        for( int i = list.size() - 1; i >= 0; i-- )
+        {
+            /*
+             * To access an element in a list, call the get method
+             */
+            int value = list.get( i );
+            
+            if( value % 2 == 0 )
+            {
+                /*
+                 * To remove an element, call the remove method
+                 */
+                list.remove( i );
+            }
         }
     }
 }
